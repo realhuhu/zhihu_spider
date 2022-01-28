@@ -124,6 +124,7 @@ class ZhiHu:
                 url = raw["paging"]["next"]
                 if result["is_end"]:
                     break
+        print(article["title"])
         return {
             "id": article_id,
             "title": article["title"],
@@ -148,8 +149,6 @@ class ZhiHu:
                         timeout=10
                     )
                     data += map(lambda x: x.result(), done)
-                    for i in data:
-                        print(i["title"])
                 if res["is_end"]:
                     print("没有了")
                     break
